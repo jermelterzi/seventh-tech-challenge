@@ -83,6 +83,10 @@ The packages of this project and for what it using them:
   
   HTTP Client.
 
+- connectivity_plus
+
+  Verify user's connection.
+
 - either_dart
 
   Multiple returns.

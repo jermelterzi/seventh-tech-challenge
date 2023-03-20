@@ -17,6 +17,8 @@ dependencies:
   video_player: ^2.6.0
   flutter_bloc: ^8.1.2
   get_it: ^7.2.0
+  equatable: ^2.0.5
+  connectivity_plus: ^3.0.3
 
 dev_dependencies:
   flutter_test:
@@ -25,7 +27,7 @@ dev_dependencies:
   mocktail: ^0.3.0
   bloc_test: ^9.1.1
   flutterando_analysis: ^0.0.2
-  equatable: ^2.0.5
+  
 
 flutter:
   uses-material-design: true
