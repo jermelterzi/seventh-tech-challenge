@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class UsernameFormField extends StatelessWidget {
-  const UsernameFormField({super.key});
+  const UsernameFormField({super.key, required this.controller});
+
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,9 @@ class UsernameFormField extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyLarge,
         ),
         const SizedBox(height: 8),
-        TextFormField(),
+        TextFormField(
+          controller: controller,
+        ),
       ],
     );
   }
