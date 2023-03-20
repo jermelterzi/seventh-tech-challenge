@@ -90,7 +90,42 @@ void main() {
       final loginResult = await repository.login(tUser);
 
       // ASSERT
-      expect(loginResult, equals(Left(OfflineFailure())));
+      expect(loginResult, equals(const Left(OfflineFailure())));
+      verify(
+        () => mockRemoteDataSource.getToken(
+          UserModel(
+            id: '1cc32bc3-e419-4c36-bca5-1015c5bd68e5',
+            username: 'candidato-seventh',
+            password: '8n5zSrYq',
+          ),
+        ),
+      ).called(1);
+      verifyNever(() => mockLocalDataSource.saveToken(tToken));
+    },
+  );
+
+  test(
+    'Given the API remote data source throws a UnauthorizadeException when login method is called then return an BadRequestFailure',
+    () async {
+      // ARRANGE
+      when(
+        () => mockRemoteDataSource.getToken(any()),
+      ).thenThrow(
+        UnauthorizedException(),
+      );
+
+      // ACT
+      final loginResult = await repository.login(tUser);
+
+      // ASSERT
+      expect(
+        loginResult,
+        equals(
+          const Left(
+            UnauthorizedFailure(message: 'Usuário ou senha incorretos!'),
+          ),
+        ),
+      );
       verify(
         () => mockRemoteDataSource.getToken(
           UserModel(
