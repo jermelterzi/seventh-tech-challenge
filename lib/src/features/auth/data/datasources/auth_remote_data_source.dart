@@ -21,6 +21,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       body: userModel.toJson(),
     );
 
+    if (response.statusCode == 401) throw UnauthorizedException();
+
     if (response.statusCode != 200) throw BadRequestException();
 
     final responseMap = jsonDecode(response.body);

@@ -1,11 +1,10 @@
+import 'package:fpdart/fpdart.dart';
 import 'package:video_monitoring_seventh/src/core/error/exceptions.dart';
+import 'package:video_monitoring_seventh/src/core/error/failure.dart';
 import 'package:video_monitoring_seventh/src/features/auth/data/datasources/auth_local_data_source.dart';
 import 'package:video_monitoring_seventh/src/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:video_monitoring_seventh/src/features/auth/data/models/user_model.dart';
 import 'package:video_monitoring_seventh/src/features/auth/domain/entities/user.dart';
-import 'package:video_monitoring_seventh/src/core/error/failure.dart';
-import 'package:fpdart/src/unit.dart';
-import 'package:fpdart/src/either.dart';
 import 'package:video_monitoring_seventh/src/features/auth/domain/repositories/auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
@@ -29,6 +28,10 @@ class AuthRepositoryImpl implements AuthRepository {
       return const Left(OfflineFailure());
     } on BadRequestException {
       return const Left(BadRequestFailure());
+    } on UnauthorizedException {
+      return const Left(
+        UnauthorizedFailure(message: 'Usuário ou senha incorretos!'),
+      );
     } on CacheException {
       return const Left(CacheFailure());
     }
