@@ -87,7 +87,7 @@ The packages of this project and for what it using them:
 
   Verify user's connection.
 
-- either_dart
+- fpdart
 
   Multiple returns.
 
