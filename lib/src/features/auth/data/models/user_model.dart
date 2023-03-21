@@ -38,5 +38,5 @@ class UserModel extends User {
 
   @override
   String toString() =>
-      'UserModel(id: $id, username: ${username.value}, password: ${password.value})';
+      '''UserModel(id: $id, username: ${username.value}, password: ${password.value})''';
 }

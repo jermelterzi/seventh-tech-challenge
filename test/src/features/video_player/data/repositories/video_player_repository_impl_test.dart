@@ -25,7 +25,8 @@ void main() {
   );
 
   test(
-    'Given that the data source returns a Video model when getVideo method is called then returns a Video',
+    'Given that the data source returns a Video model when getVideo method is '
+    'called then returns a Video',
     () async {
       // ARRANGE
       when(
@@ -57,7 +58,8 @@ void main() {
   );
 
   test(
-    'Given that the data source throws an OfflineException when getVideo method is called then returns an OfflineFailure',
+    'Given that the data source throws an OfflineException when getVideo '
+    'method is called then returns an OfflineFailure',
     () async {
       // ARRANGE
       when(
@@ -76,7 +78,8 @@ void main() {
   );
 
   test(
-    'Given that the data source throws an InvalidTokenException when getVideo method is called then returns a InvalidTokenFailure',
+    'Given that the data source throws an InvalidTokenException when getVideo '
+    'method is called then returns a InvalidTokenFailure',
     () async {
       // ARRANGE
       when(
@@ -98,7 +101,8 @@ void main() {
   );
 
   test(
-    'Given that the data source throws an BadRequestException when getVideo method is called then returns a BadRequestFailure',
+    'Given that the data source throws an BadRequestException when getVideo '
+    'method is called then returns a BadRequestFailure',
     () async {
       // ARRANGE
       when(

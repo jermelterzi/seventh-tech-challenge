@@ -35,7 +35,7 @@ void main() {
     () {
       const getUrl = 'http://mobiletest.seventh.com.br/video/bunny.mp4';
       const tToken =
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiNDM4MWI2ZmEtNDEzNi00MDRhLTlkOTctOGU3N2NjNjdhOGU4IiwidXNlcm5hbWUiOiJjYW5kaWRhdG8tc2V2ZW50aCIsImxhc3RMb2dpbiI6IjIwMjMtMDMtMTlUMjE6MTA6NTEuNzY0WiJ9LCJpYXQiOjE2NzkyNjAyNTEsImV4cCI6MTY3OTM0NjY1MX0.oBnvc6M08X6zQX2_ZYDI-qezaVBZNkSSHmnJs-e1WJs';
+          '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiNDM4MWI2ZmEtNDEzNi00MDRhLTlkOTctOGU3N2NjNjdhOGU4IiwidXNlcm5hbWUiOiJjYW5kaWRhdG8tc2V2ZW50aCIsImxhc3RMb2dpbiI6IjIwMjMtMDMtMTlUMjE6MTA6NTEuNzY0WiJ9LCJpYXQiOjE2NzkyNjAyNTEsImV4cCI6MTY3OTM0NjY1MX0.oBnvc6M08X6zQX2_ZYDI-qezaVBZNkSSHmnJs-e1WJs''';
 
       setUpAll(() {
         registerFallbackValue(
@@ -44,7 +44,8 @@ void main() {
       });
 
       test(
-        'Given user is online and the token has a token saved when a valid request is called then return a SeventhResponse',
+        'Given user is online and the token has a token saved when a valid '
+        'request is called then return a SeventhResponse',
         () async {
           // ARRANGE
           when(
@@ -97,7 +98,8 @@ void main() {
       );
 
       test(
-        'Given user is offline when a valid request is called then throw a OfflineException',
+        'Given user is offline when a valid request is called then throw a '
+        'OfflineException',
         () async {
           // ARRANGE
           when(
@@ -129,7 +131,8 @@ void main() {
       );
 
       test(
-        'Given user is online but the token is not saved when a valid request is called then throw a InvalidTokenException',
+        'Given user is online but the token is not saved when a valid request '
+        'is called then throw a InvalidTokenException',
         () async {
           // ARRANGE
           when(
@@ -174,7 +177,8 @@ void main() {
       setUp(() => registerFallbackValue(Uri.parse(postUrl)));
 
       test(
-        'Given user is online when a post request is called then return a SeventhResponse',
+        'Given user is online when a post request is called then return a '
+        'SeventhResponse',
         () async {
           // ARRANGE
           when(
@@ -228,7 +232,8 @@ void main() {
       );
 
       test(
-        'Given the user is offline when a valid post request is called then throw a OfflineException',
+        'Given the user is offline when a valid post request is called then '
+        'throw a OfflineException',
         () async {
           // ARRANGE
           when(

@@ -19,8 +19,8 @@ void main() {
   });
 
   test(
-      'Given the repository returns a right value when get video use case is called then returns a Video',
-      () async {
+      'Given the repository returns a right value when get video use case is '
+      'called then returns a Video', () async {
     // ARRANGE
     when(
       () => mockRepository.getVideo(any()),
@@ -52,7 +52,8 @@ void main() {
   });
 
   test(
-    'Given the repository returns a left value when get video use case is called then returns a Failure',
+    'Given the repository returns a left value when get video use case is '
+    'called then returns a Failure',
     () async {
       // ARRANGE
       when(

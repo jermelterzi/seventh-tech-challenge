@@ -7,7 +7,7 @@ class UsernameVO extends ValueObject<String> {
 
   @override
   Either<Failure, Unit> validate() {
-    if (value.isEmpty) return Left(EmptyUsernameFailure());
+    if (value.isEmpty) return const Left(EmptyUsernameFailure());
 
     return const Right(unit);
   }

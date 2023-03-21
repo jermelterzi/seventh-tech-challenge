@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:video_monitoring_seventh/src/features/video_player/presentation/widgets/video_player_button.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerFullScreenPage extends StatefulWidget {
@@ -18,6 +19,7 @@ class VideoPlayerFullScreenPage extends StatefulWidget {
 class _VideoPlayerFullScreenPageState extends State<VideoPlayerFullScreenPage> {
   @override
   void initState() {
+    super.initState();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
@@ -37,17 +39,11 @@ class _VideoPlayerFullScreenPageState extends State<VideoPlayerFullScreenPage> {
           padding: const EdgeInsets.all(16),
           child: Align(
             alignment: Alignment.bottomRight,
-            child: CircleAvatar(
-              backgroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                icon: Icon(
-                  Icons.fullscreen_exit,
-                  color: Theme.of(context).colorScheme.primaryContainer,
-                ),
-              ),
+            child: VideoPlayerButton(
+              iconData: Icons.fullscreen_exit,
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
             ),
           ),
         )

@@ -8,7 +8,7 @@ void main() {
     password: '8n5zSrYq',
   );
 
-  final tJson = '{"username":"candidato-seventh","password":"8n5zSrYq"}';
+  const tJson = '{"username":"candidato-seventh","password":"8n5zSrYq"}';
 
   final tMap = {
     'username': 'candidato-seventh',
@@ -16,7 +16,8 @@ void main() {
   };
 
   test(
-    'Given a UserModel when toMap method is called then return a Map<String, dynamic>',
+    'Given a UserModel when toMap method is called then return a '
+    'Map<String, dynamic>',
     () {
       // ACT
       final modelMap = tModel.toMap();
@@ -52,7 +53,8 @@ void main() {
   );
 
   test(
-    'Given a Json when fromJson factory method is called then return a UserModel',
+    'Given a Json when fromJson factory method is called then return a '
+    'UserModel',
     () {
       // ACT
       final model = UserModel.fromJson(tJson);
@@ -63,7 +65,8 @@ void main() {
   );
 
   test(
-    'Given a UserModel when toString method is called then return a String with the UserModel proprerties',
+    'Given a UserModel when toString method is called then return a String '
+    'with the UserModel proprerties',
     () {
       // ACT
       final modelToString = tModel.toString();
@@ -72,7 +75,7 @@ void main() {
       expect(
         modelToString,
         equals(
-          'UserModel(id: 1cc32bc3-e419-4c36-bca5-1015c5bd68e5, username: candidato-seventh, password: 8n5zSrYq)',
+          '''UserModel(id: 1cc32bc3-e419-4c36-bca5-1015c5bd68e5, username: candidato-seventh, password: 8n5zSrYq)''',
         ),
       );
     },
