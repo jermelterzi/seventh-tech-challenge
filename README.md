@@ -30,9 +30,9 @@ Toda interface será feita usando componentes pré-construidos do Material Desig
 <!-- ROADMAP -->
 ## Roadmap
 
-[ ] Autenticação
+[X] Autenticação
 
-[ ] Reprodução do vídeo
+[X] Reprodução do vídeo
 
 Veja o [Trello](https://trello.com/invite/b/xDCW2uf2/ATTIeccf4772ef88e4b944c40026a1e1e612F7AB1F9D/video-player) do projeto para uma lista mais completa das features do projeto.
 
