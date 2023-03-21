@@ -27,6 +27,12 @@ class OfflineFailure extends Failure {
   });
 }
 
+class InvalidTokenFailure extends Failure {
+  const InvalidTokenFailure({
+    super.message = 'Token inválido, faça o login novamente!',
+  });
+}
+
 class BadRequestFailure extends Failure {
   const BadRequestFailure({
     super.message = 'Erro na requisição, tente novamente!',

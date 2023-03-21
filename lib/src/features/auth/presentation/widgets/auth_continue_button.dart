@@ -1,21 +1,21 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:video_monitoring_seventh/src/features/auth/domain/entities/user.dart';
-import 'package:video_monitoring_seventh/src/features/auth/presentation/bloc/auth_bloc.dart';
+part of '../pages/auth_page.dart';
 
 class AuthContinueButton extends StatelessWidget {
   const AuthContinueButton({
+    required this.bloc,
     required this.usernameFieldController,
     required this.passwordFieldController,
     super.key,
   });
 
+  final AuthBloc bloc;
   final TextEditingController usernameFieldController;
   final TextEditingController passwordFieldController;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthBloc, AuthState>(
+      bloc: bloc,
       builder: (context, state) {
         final user = state.user;
 
@@ -26,15 +26,15 @@ class AuthContinueButton extends StatelessWidget {
               backgroundColor: Theme.of(context).colorScheme.primaryContainer,
             ),
             onPressed: () {
-              context.read<AuthBloc>().add(
-                    LoginEvent(
-                      User(
-                        id: user.id,
-                        username: usernameFieldController.text,
-                        password: passwordFieldController.text,
-                      ),
-                    ),
-                  );
+              bloc.add(
+                LoginEvent(
+                  User(
+                    id: user.id,
+                    username: usernameFieldController.text,
+                    password: passwordFieldController.text,
+                  ),
+                ),
+              );
             },
             child: AnimatedCrossFade(
               firstChild: Flex(
