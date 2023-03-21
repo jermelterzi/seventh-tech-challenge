@@ -19,7 +19,7 @@ void main() {
   late final AuthLocalDataSource mockLocalDataSource;
   late final AuthRepository repository;
   const tToken =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiNDM4MWI2ZmEtNDEzNi00MDRhLTlkOTctOGU3N2NjNjdhOGU4IiwidXNlcm5hbWUiOiJjYW5kaWRhdG8tc2V2ZW50aCIsImxhc3RMb2dpbiI6IjIwMjMtMDMtMTlUMjE6MTA6NTEuNzY0WiJ9LCJpYXQiOjE2NzkyNjAyNTEsImV4cCI6MTY3OTM0NjY1MX0.oBnvc6M08X6zQX2_ZYDI-qezaVBZNkSSHmnJs-e1WJs';
+      '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiNDM4MWI2ZmEtNDEzNi00MDRhLTlkOTctOGU3N2NjNjdhOGU4IiwidXNlcm5hbWUiOiJjYW5kaWRhdG8tc2V2ZW50aCIsImxhc3RMb2dpbiI6IjIwMjMtMDMtMTlUMjE6MTA6NTEuNzY0WiJ9LCJpYXQiOjE2NzkyNjAyNTEsImV4cCI6MTY3OTM0NjY1MX0.oBnvc6M08X6zQX2_ZYDI-qezaVBZNkSSHmnJs-e1WJs''';
   final tUser = User(
     id: '1cc32bc3-e419-4c36-bca5-1015c5bd68e5',
     username: 'candidato-seventh',
@@ -43,7 +43,8 @@ void main() {
   });
 
   test(
-    'Given a valid User when remote data source returns a String and local data source return an unit then return an unit',
+    'Given a valid User when remote data source returns a String and local '
+    'data source return an unit then return an unit',
     () async {
       // ARRANGE
       when(
@@ -77,7 +78,8 @@ void main() {
   );
 
   test(
-    'Given a User when login method is called and the remote data source throws an OfflineException then return an OfflineFailure',
+    'Given a User when login method is called and the remote data source '
+    'throws an OfflineException then return an OfflineFailure',
     () async {
       // ARRANGE
       when(
@@ -105,7 +107,8 @@ void main() {
   );
 
   test(
-    'Given the API remote data source throws a UnauthorizadeException when login method is called then return an BadRequestFailure',
+    'Given the API remote data source throws a UnauthorizadeException when '
+    'login method is called then return an BadRequestFailure',
     () async {
       // ARRANGE
       when(
@@ -140,7 +143,8 @@ void main() {
   );
 
   test(
-    'Given a User when login method is called and the remote data source throws an BadRequestException then return an BadRequestFailure',
+    'Given a User when login method is called and the remote data source '
+    'throws an BadRequestException then return an BadRequestFailure',
     () async {
       // ARRANGE
       when(
@@ -168,7 +172,9 @@ void main() {
   );
 
   test(
-    'Given a User when login method is called and the remote data source return the token but the local data source has some problem to save it then return a CacheFailure',
+    'Given a User when login method is called and the remote data source '
+    'return the token but the local data source has some problem to save it '
+    'then return a CacheFailure',
     () async {
       // ARRANGE
       when(

@@ -23,7 +23,8 @@ void main() {
   );
 
   test(
-    'Given a empty username when validated method is called then return EmptyUsernameFailure',
+    'Given a empty username when validated method is called then return '
+    'EmptyUsernameFailure',
     () {
       // ARRANGE
       final user = User(
@@ -41,7 +42,8 @@ void main() {
   );
 
   test(
-    'Given a empty password when validated method is called then return EmptyPasswordFailure',
+    'Given a empty password when validated method is called then return '
+    'EmptyPasswordFailure',
     () {
       // ARRANGE
       final user = User(
@@ -54,7 +56,7 @@ void main() {
       final userValidate = user.validate();
 
       // ASSERT
-      expect(userValidate, equals(Left(EmptyPasswordFailure())));
+      expect(userValidate, equals(const Left(EmptyPasswordFailure())));
     },
   );
 }

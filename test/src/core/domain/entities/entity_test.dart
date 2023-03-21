@@ -5,8 +5,8 @@ void main() {
   const userId = 'c3d34ce9-a955-46cc-b67b-1b824dfa3786';
 
   test(
-      'Given a comparasion between Entities with the same id when == is called then return true',
-      () async {
+      'Given a comparasion between Entities with the same id when == is called '
+      'then return true', () async {
     // ARRANGE
     final entity = User(
       id: userId,
@@ -27,7 +27,8 @@ void main() {
   });
 
   test(
-    'Given a Entity when get hashCode is called then return the hash code of the id of the Entity',
+    'Given a Entity when get hashCode is called then return the hash code of '
+    'the id of the Entity',
     () {
       // ARRANGE
       final entity = User(

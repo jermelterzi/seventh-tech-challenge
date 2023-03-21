@@ -6,8 +6,6 @@ import 'package:video_monitoring_seventh/src/core/error/failure.dart';
 import 'package:video_monitoring_seventh/src/features/auth/domain/entities/user.dart';
 import 'package:video_monitoring_seventh/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:video_monitoring_seventh/src/features/auth/domain/usecases/login.dart';
-import 'package:video_monitoring_seventh/src/features/auth/domain/value_objects/password_vo.dart';
-import 'package:video_monitoring_seventh/src/features/auth/domain/value_objects/username_vo.dart';
 
 class MockAuthRepository extends Mock implements AuthRepository {}
 
@@ -34,7 +32,8 @@ void main() {
       setUp(() => registerFallbackValue(tUser));
 
       test(
-        'Given a valid User when the return of repository is unit then return unit',
+        'Given a valid User when the return of repository is unit then return '
+        'unit',
         () async {
           // ARRANGE
           when(
@@ -53,7 +52,8 @@ void main() {
       );
 
       test(
-        'Given a valid User when the return of repository is a Failure then return the Failure',
+        'Given a valid User when the return of repository is a Failure then '
+        'return the Failure',
         () async {
           // ARRANGE
           when(
@@ -83,7 +83,8 @@ void main() {
       );
 
       test(
-        'Given a invalid User when the use case is called then return a Failure',
+        'Given a invalid User when the use case is called then return a '
+        'Failure',
         () async {
           // ARRANGE
 

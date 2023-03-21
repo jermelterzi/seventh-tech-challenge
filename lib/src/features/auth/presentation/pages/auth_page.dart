@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:video_monitoring_seventh/src/app/routes/routes.dart';
 import 'package:video_monitoring_seventh/src/core/dependency_injection/dependency_injection.dart';
+import 'package:video_monitoring_seventh/src/core/presentation/widgets/seventh_snack_bars.dart';
 import 'package:video_monitoring_seventh/src/features/auth/domain/entities/user.dart';
 import 'package:video_monitoring_seventh/src/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:video_monitoring_seventh/src/features/auth/presentation/widgets/auth_header.dart';
@@ -39,30 +40,10 @@ class _AuthPageState extends State<AuthPage> {
           }
 
           if (state is AuthError) {
-            final errorSnackBar = SnackBar(
-              backgroundColor: Theme.of(context).colorScheme.errorContainer,
-              behavior: SnackBarBehavior.floating,
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-              content: Flex(
-                direction: Axis.horizontal,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.block,
-                    color: Theme.of(context).colorScheme.onErrorContainer,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    state.errorMessage,
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.onErrorContainer,
-                    ),
-                  )
-                ],
-              ),
+            SeventhSnackBars.showErrorSnackBar(
+              context,
+              message: state.errorMessage,
             );
-
-            ScaffoldMessenger.of(context).showSnackBar(errorSnackBar);
           }
         },
         builder: (context, state) {

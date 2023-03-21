@@ -20,7 +20,8 @@ void main() {
   );
 
   test(
-    'Given the response from the API is a success when getVideo method is called then return a VideoModel with the url of the body of response',
+    'Given the response from the API is a success when getVideo method is '
+    'called then return a VideoModel with the url of the body of response',
     () async {
       // ARRANGE
       when(
@@ -56,7 +57,8 @@ void main() {
   );
 
   test(
-    'Given the request fails when the response is different of 200 then throws BadRequestException',
+    'Given the request fails when the response is different of 200 then throws '
+    'BadRequestException',
     () async {
       // ARRANGE
       when(

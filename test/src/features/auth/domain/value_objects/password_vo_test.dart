@@ -8,7 +8,7 @@ void main() {
     'Given a valid password when validate method then return null',
     () async {
       // ARRANGE
-      final password = PasswordVO(value: '1234');
+      const password = PasswordVO(value: '1234');
 
       // ACT
       final isPasswordValid = password.validate();
@@ -22,13 +22,13 @@ void main() {
     'Given a empty password when validate method then return a message',
     () {
       // ARRANGE
-      final password = PasswordVO(value: '');
+      const password = PasswordVO(value: '');
 
       // ACT
       final isPasswordValid = password.validate();
 
       // ASSERT
-      expect(isPasswordValid, equals(Left(EmptyPasswordFailure())));
+      expect(isPasswordValid, equals(const Left(EmptyPasswordFailure())));
     },
   );
 }

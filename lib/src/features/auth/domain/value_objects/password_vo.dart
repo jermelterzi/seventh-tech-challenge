@@ -7,7 +7,7 @@ class PasswordVO extends ValueObject<String> {
 
   @override
   Either<Failure, Unit> validate() {
-    if (value.isEmpty) return Left(EmptyPasswordFailure());
+    if (value.isEmpty) return const Left(EmptyPasswordFailure());
 
     return const Right(unit);
   }

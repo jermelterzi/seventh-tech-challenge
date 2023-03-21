@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:video_monitoring_seventh/src/core/dependency_injection/dependency_injection.dart'
     as di;
+import 'package:video_monitoring_seventh/src/core/presentation/widgets/seventh_snack_bars.dart';
 import 'package:video_monitoring_seventh/src/features/video_player/presentation/bloc/video_player_bloc.dart';
 import 'package:video_monitoring_seventh/src/features/video_player/presentation/pages/video_player_full_screen_page.dart';
 import 'package:video_monitoring_seventh/src/features/video_player/presentation/widgets/video_player_button.dart';
@@ -9,11 +10,8 @@ import 'package:video_player/video_player.dart';
 
 class VideoPlayerPage extends StatefulWidget {
   const VideoPlayerPage({
-    // required this.videoUrl,
     super.key,
   });
-
-  // final String videoUrl;
 
   @override
   State<VideoPlayerPage> createState() => _VideoPlayerPageState();
@@ -55,30 +53,10 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
         bloc: bloc,
         listener: (context, state) {
           if (state is VideoPlayerErrorState) {
-            final errorSnackBar = SnackBar(
-              backgroundColor: Theme.of(context).colorScheme.errorContainer,
-              behavior: SnackBarBehavior.floating,
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-              content: Flex(
-                direction: Axis.horizontal,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.block,
-                    color: Theme.of(context).colorScheme.onErrorContainer,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    state.errorMessage,
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.onErrorContainer,
-                    ),
-                  )
-                ],
-              ),
+            SeventhSnackBars.showErrorSnackBar(
+              context,
+              message: state.errorMessage,
             );
-
-            ScaffoldMessenger.of(context).showSnackBar(errorSnackBar);
           }
         },
         builder: (context, state) {
@@ -130,11 +108,11 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                       VideoPlayerButton(
                         iconData:
                             _isMuted ? Icons.volume_up_sharp : Icons.volume_off,
-                        onPressed: () => onMuteButtonPressed(controller),
+                        onPressed: () => _onMuteButtonPressed(controller),
                       ),
                       VideoPlayerButton(
                         iconData: _isPaused ? Icons.play_arrow : Icons.pause,
-                        onPressed: () => onPlayPauseButtonPressed(controller),
+                        onPressed: () => _onPlayPauseButtonPressed(controller),
                       ),
                       VideoPlayerButton(
                         iconData: Icons.fullscreen,
@@ -163,7 +141,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
     );
   }
 
-  void onMuteButtonPressed(VideoPlayerController controller) {
+  void _onMuteButtonPressed(VideoPlayerController controller) {
     if (_isMuted) {
       controller.setVolume(1);
 
@@ -179,7 +157,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
     });
   }
 
-  void onPlayPauseButtonPressed(VideoPlayerController controller) {
+  void _onPlayPauseButtonPressed(VideoPlayerController controller) {
     if (_isPaused) {
       controller.play();
 

@@ -21,7 +21,8 @@ void main() {
   );
 
   test(
-    'Given a empty username when validate method is called then return a message',
+    'Given a empty username when validate method is called then return a '
+    'message',
     () async {
       // ARRANGE
       const email = UsernameVO(value: '');
@@ -30,7 +31,7 @@ void main() {
       final isEmailValid = email.validate();
 
       // ASSERT
-      expect(isEmailValid, equals(Left(EmptyUsernameFailure())));
+      expect(isEmailValid, equals(const Left(EmptyUsernameFailure())));
     },
   );
 }
