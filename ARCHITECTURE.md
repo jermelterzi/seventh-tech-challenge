@@ -1,7 +1,5 @@
 # Architecture Documentation
 
-This project is a mono repository using Clean Architecture with multiple features.
-
 ## Objective
 
 The main objective of this document's to guide the software development of this application.
