@@ -33,8 +33,8 @@ void main() {
   group(
     'get:',
     () {
-      final getUrl = 'http://mobiletest.seventh.com.br/video/bunny.mp4';
-      final tToken =
+      const getUrl = 'http://mobiletest.seventh.com.br/video/bunny.mp4';
+      const tToken =
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiNDM4MWI2ZmEtNDEzNi00MDRhLTlkOTctOGU3N2NjNjdhOGU4IiwidXNlcm5hbWUiOiJjYW5kaWRhdG8tc2V2ZW50aCIsImxhc3RMb2dpbiI6IjIwMjMtMDMtMTlUMjE6MTA6NTEuNzY0WiJ9LCJpYXQiOjE2NzkyNjAyNTEsImV4cCI6MTY3OTM0NjY1MX0.oBnvc6M08X6zQX2_ZYDI-qezaVBZNkSSHmnJs-e1WJs';
 
       setUpAll(() {
@@ -129,7 +129,7 @@ void main() {
       );
 
       test(
-        'Given user is online but the token is not saved when a valid request is called then throw a InvalidUserException',
+        'Given user is online but the token is not saved when a valid request is called then throw a InvalidTokenException',
         () async {
           // ARRANGE
           when(
@@ -148,7 +148,7 @@ void main() {
           // ASSERT
           await expectLater(
             call(url: getUrl),
-            throwsA(const TypeMatcher<InvalidUserException>()),
+            throwsA(const TypeMatcher<InvalidTokenException>()),
           );
           verify(mockConnectivity.checkConnectivity).called(1);
           verify(() => mockSharedPreferences.getString('token')).called(1);
@@ -169,7 +169,7 @@ void main() {
   group(
     'post',
     () {
-      final postUrl = 'http://mobiletest.seventh.com.br/login';
+      const postUrl = 'http://mobiletest.seventh.com.br/login';
 
       setUp(() => registerFallbackValue(Uri.parse(postUrl)));
 

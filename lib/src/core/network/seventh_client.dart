@@ -33,7 +33,7 @@ class SeventhClientImpl implements SeventhClient {
 
     final token = sharedPreferences.getString('token');
 
-    if (token == null) throw InvalidUserException();
+    if (token == null) throw InvalidTokenException();
 
     final response = await client.get(
       Uri.parse(url),

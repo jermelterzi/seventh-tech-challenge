@@ -64,7 +64,7 @@ void main() {
         () => mockClient.post(url: any(named: 'url'), body: any(named: 'body')),
       ).thenAnswer(
         (_) async => const SeventhResponse(
-          statusCode: 401,
+          statusCode: 400,
           body: '{"message":"Falha na requisição."}',
         ),
       );

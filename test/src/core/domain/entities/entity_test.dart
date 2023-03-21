@@ -1,7 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:video_monitoring_seventh/src/features/auth/domain/entities/user.dart';
-import 'package:video_monitoring_seventh/src/features/auth/domain/value_objects/password_vo.dart';
-import 'package:video_monitoring_seventh/src/features/auth/domain/value_objects/username_vo.dart';
 
 void main() {
   const userId = 'c3d34ce9-a955-46cc-b67b-1b824dfa3786';

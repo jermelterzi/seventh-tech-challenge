@@ -1,6 +1,6 @@
 class OfflineException implements Exception {}
 
-class InvalidUserException implements Exception {}
+class InvalidTokenException implements Exception {}
 
 class BadRequestException implements Exception {}
 
